@@ -2,6 +2,7 @@
 WELCOME TO INTRIGUE: (BETA)
 
 This is an application that uses a self created symmetric key algorithm to encrypt and decrypt text files.
+Written in August 2015
 
 Author: Tony Wagdi
 
