@@ -32,7 +32,6 @@ int main()
         case 1:
         {
             //ENCRYPT FILE AND OUTPUT IT TO A CYPHER FILE AND KEYS INTO KEY FILE
-
             string path, encOut, keysOut;
             string outEncPath, outKeyPath;
 
@@ -104,10 +103,8 @@ int main()
                 string cypher = encrypt.createCypher();
 
                 cypherFile << cypher << endl;
-
                 i++;
             }
-
             keyFile.close();
             cypherFile.close();
             cout << "\nFILE ENCRYPTED SUCCESSFULLY\n\n";
@@ -138,7 +135,6 @@ int main()
             cout << endl;
 
             cout << "File Decrypting... " << endl;
-
 
             if (outPath.at(outPath.size()-1) != '/')
                 outPath.append("/");
@@ -185,7 +181,6 @@ int main()
 
                 key1 = key1 + (line2.at(i));
 
-
                 long dkey1 = stoi(key1);
                 long dkey2 = stoi(key2);
                 long dkey3 = stoi(key3);
@@ -201,7 +196,6 @@ int main()
                 string plaintext = decrypt.createPlaintext();
 
                 decryptedFile << plaintext << endl;
-
                 i++;
             }
             decryptedFile.close();
@@ -218,15 +212,3 @@ int main()
     cout << "\nINTRIGUE HAS TERMINATED SUCCESSFULLY\n\n";
     return SUCCESS;
 }
-
-
-
-
-
-
-
-
-
-
-
-

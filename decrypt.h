@@ -33,5 +33,4 @@ class Decrypt
         void setKey4(long k);
         void setKey5(long k);
 };
-
 #endif // DECRYPT_H

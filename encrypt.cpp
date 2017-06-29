@@ -15,12 +15,10 @@ string Encrypt::createCypher()
     {
         return cypher;
     }
-
     if (!key1 || !key2 || !key3 || !key4 || !key5)
     {
         return "MISSING KEY";
     }
-
     cypher = this->encryptA(cypher);
     cypher = this->encryptB(cypher);
     cypher = this->encryptC(cypher);
@@ -54,24 +52,19 @@ string Encrypt::encryptA(string inp)
             {
                 break;
             }
-
             char temp = encryptedA[k][i];
             encryptedA[k][i] = encryptedA[k][j];
             encryptedA[k][j] = temp;
-
         }
     }
-
     //reverse the vector then append all strings into cyphertext
     reverse(encryptedA.begin(), encryptedA.end());
     string cyphertext;
+
     for (unsigned i = 0; i < encryptedA.size(); i++){
         cyphertext.append(encryptedA[i]);
     }
-
-
     return cyphertext;
-
 }
 //Encrypt BRAVO
 string Encrypt::encryptB(string inp)
@@ -105,7 +98,6 @@ string Encrypt::encryptC(string inp)
     }
     //reverse the vector
     reverse(encryptedA.begin(), encryptedA.end());
-
     //Switch characters in every string in the vector
     for (unsigned i = 1, j = 2; i < encryptedA.size()-1; i += 2, j += 2){
         if ((i+1) >= encryptedA.size() || (j+1) >= encryptedA.size() )
@@ -113,18 +105,14 @@ string Encrypt::encryptC(string inp)
             break;
         }
         swap(encryptedA[i], encryptedA[j]);
-
     }
-
     //Append all strings into cyphertext
     string cyphertext;
+
     for (unsigned i = 0; i < encryptedA.size(); i++){
         cyphertext.append(encryptedA[i]);
     }
-
-
     return cyphertext;
-
 }
 //Encrypt DELTA
 string Encrypt::encryptD(string inp)
@@ -169,6 +157,3 @@ void Encrypt::setKey5(long k)
 {
     key5 = k;
 }
-
-
-

@@ -20,7 +20,6 @@ string Decrypt::createPlaintext()
     {
         return plaintext;
     }
-
     plaintext = this->decryptD(plaintext);
     plaintext = this->decryptC(plaintext);
     plaintext = this->decryptB(plaintext);
@@ -69,16 +68,13 @@ string Decrypt::decryptC(string inp)
         encryptedTest.push_back(inp.substr(i, key4));
     }
     int lastStringSize = encryptedTest[encryptedTest.size()-1].size();
-
     //Account for last string not being key4 size
     encryptedA.push_back(inp.substr(0, lastStringSize));
     inp.erase(0, lastStringSize);
-
     //Split the plaintext into multiple strings of key4 6
     for (unsigned j = 0; j < inp.length(); j += key4) {
         encryptedA.push_back(inp.substr(j, key4));
     }
-
     //Switch characters in every string in the vector
     for (unsigned i = 1, j = 2; i < encryptedA.size()-1; i += 2, j += 2){
         if ((i+1) >= encryptedA.size() || (j+1) >= encryptedA.size() )
@@ -86,18 +82,14 @@ string Decrypt::decryptC(string inp)
             break;
         }
         swap(encryptedA[i], encryptedA[j]);
-
     }
-
     //reverse the vector then append all strings into cyphertext
     reverse(encryptedA.begin(), encryptedA.end());
     string plaintext;
     for (unsigned i = 0; i < encryptedA.size(); i++){
         plaintext.append(encryptedA[i]);
     }
-
     return plaintext;
-
 }
 //Decrypt BRAVO
 string Decrypt::decryptB(string inp)
@@ -130,11 +122,9 @@ string Decrypt::decryptA(string inp)
         encryptedTest.push_back(inp.substr(i, key3));
     }
     int lastStringSize = encryptedTest[encryptedTest.size()-1].size();
-
     //Account for last string not being size 10
     encryptedA.push_back(inp.substr(0, lastStringSize));
     inp.erase(0, lastStringSize);
-
     //Split the plaintext into multiple strings of size 10
     for (unsigned j = 0; j < inp.length(); j += key3) {
         encryptedA.push_back(inp.substr(j, key3));
@@ -146,11 +136,9 @@ string Decrypt::decryptA(string inp)
             {
                 break;
             }
-
             char temp = encryptedA[k][i];
             encryptedA[k][i] = encryptedA[k][j];
             encryptedA[k][j] = temp;
-
         }
     }
 
@@ -160,9 +148,7 @@ string Decrypt::decryptA(string inp)
     for (unsigned i = 0; i < encryptedA.size(); i++){
         plaintext.append(encryptedA[i]);
     }
-
     return plaintext;
-
 }
 void Decrypt::setKey1(long k)
 {
@@ -184,5 +170,3 @@ void Decrypt::setKey5(long k)
 {
     key5 = k;
 }
-
-
