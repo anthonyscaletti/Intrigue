@@ -208,7 +208,6 @@ int main()
             break;
         }
     }
-
     cout << "\nINTRIGUE HAS TERMINATED SUCCESSFULLY\n\n";
     return SUCCESS;
 }

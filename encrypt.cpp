@@ -71,9 +71,10 @@ string Encrypt::encryptB(string inp)
 {
     int num = key2;
     int size = inp.length();
+    long long int temp;
 
     for(int i = 0; i < size; i++){
-        long long int temp = (int)inp[i];
+        temp = (int)inp[i];
         temp = temp + (num * key1) + (i * i * (i + key2) * (i + key2));
 
         if (temp > 126)
@@ -117,12 +118,12 @@ string Encrypt::encryptC(string inp)
 //Encrypt DELTA
 string Encrypt::encryptD(string inp)
 {
-
     int num = key5;
     int size = inp.length();
+    long long int temp;
 
     for(int i = 0; i < size; i++){
-        long long int temp = (int)inp[i];
+        temp = (int)inp[i];
         temp = temp - (num * i);
 
         if (temp < 32)

@@ -42,9 +42,10 @@ string Decrypt::decryptD(string inp)
 {
     int num = key5;
     int size = inp.length();
+    long long int temp;
 
     for(int i = 0; i < size; i++){
-        long long int temp = (int)inp[i];
+        temp = (int)inp[i];
         temp = temp + (num * i);
 
         if (temp > 126)
@@ -96,9 +97,10 @@ string Decrypt::decryptB(string inp)
 {
     int num = key2;
     int size = inp.length();
+    long long int temp;
 
     for(int i = 0; i < size; i++){
-        long long int temp = (int)inp[i];
+        temp = (int)inp[i];
         temp = temp - (num * key1) - (i * i * (i + key2) * (i + key2));
 
         if (temp < 32)
@@ -141,7 +143,6 @@ string Decrypt::decryptA(string inp)
             encryptedA[k][j] = temp;
         }
     }
-
     //reverse the vector then append all strings into cyphertext
     reverse(encryptedA.begin(), encryptedA.end());
     string plaintext;
