@@ -2,6 +2,7 @@
 WELCOME TO INTRIGUE: (BETA)
 
 This is an application that uses a self created symmetric key algorithm to encrypt and decrypt text files. Developed in August 2015.
+P.S. I started this project before I learned Time complexity and code optimization.
 
 Author: Tony Wagdi
 
